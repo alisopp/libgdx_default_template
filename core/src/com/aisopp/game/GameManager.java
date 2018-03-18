@@ -6,9 +6,6 @@ package com.aisopp.game;
  * @since 15.03.2018
  */
 
-public class GameManager implements InputHandler{
-    @Override
-    public int getInputCode(int code) {
-        return 0;
-    }
+public class GameManager{
+
 }

@@ -7,9 +7,14 @@ import com.aisopp.game.InputHandler;
  * @version 1.0
  * @since 15.03.2018
  */
+public class PawnController {
 
-public interface PawnController {
+    protected InputHandler inputHandler;
 
-    public InputHandler getInputHandler();
-    public void setInputHandler(InputHandler inputHandler);
+    public InputHandler getInputHandler(){
+        return inputHandler;
+    }
+    public void setInputHandler(InputHandler inputHandler){
+        this.inputHandler = inputHandler;
+    }
 }

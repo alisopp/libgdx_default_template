@@ -7,5 +7,5 @@ package com.aisopp.game;
  */
 
 public interface InputHandler {
-    int getInputCode(int code);
+    void sendInputCode(int entityID , int code);
 }

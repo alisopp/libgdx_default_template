@@ -1,6 +1,6 @@
 package com.aisopp.game.controller;
 
-import com.aisopp.game.InputHandler;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 
 /**
@@ -8,13 +8,23 @@ import com.badlogic.gdx.InputProcessor;
  * @version 1.0
  * @since 15.03.2018
  */
-
-public class PlayerController implements PawnController, InputProcessor {
-
-    private InputHandler inputHandler;
+public class PlayerController extends PawnController implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
+
+        switch (keycode){
+            case Keys.W:
+                inputHandler.sendInputCode(1,1);
+                break;
+            case Keys.A:
+                break;
+            case Keys.S:
+                break;
+            case Keys.D:
+                break;
+        }
+
         return false;
     }
 
@@ -51,15 +61,5 @@ public class PlayerController implements PawnController, InputProcessor {
     @Override
     public boolean scrolled(int amount) {
         return false;
-    }
-
-    @Override
-    public InputHandler getInputHandler() {
-        return inputHandler;
-    }
-
-    @Override
-    public void setInputHandler(InputHandler inputHandler) {
-        this.inputHandler = inputHandler;
     }
 }
