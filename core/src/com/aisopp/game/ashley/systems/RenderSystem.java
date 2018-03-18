@@ -7,6 +7,9 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -57,6 +60,8 @@ public class RenderSystem extends IteratingSystem implements DisposeAble{
         renderQueue.sort(comparator);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
+        Gdx.gl.glClearColor(.135f, .206f, .235f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         for (Entity entity :
                 renderQueue) {
@@ -85,6 +90,10 @@ public class RenderSystem extends IteratingSystem implements DisposeAble{
     @Override
     public void dispose(){
         batch.dispose();
+    }
+
+    public Camera getCamera(){
+        return camera;
     }
 
 

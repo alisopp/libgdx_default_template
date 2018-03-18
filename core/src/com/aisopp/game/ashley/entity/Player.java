@@ -1,5 +1,6 @@
 package com.aisopp.game.ashley.entity;
 
+import com.aisopp.game.ashley.components.MovementComponent;
 import com.aisopp.game.ashley.components.TextureComponent;
 import com.aisopp.game.ashley.components.TransformComponent;
 import com.badlogic.ashley.core.Entity;
@@ -18,8 +19,10 @@ public class Player extends Entity {
         TransformComponent transformComponent = new TransformComponent();
         transformComponent.setPosition(new Vector2(5,7.5f));
         TextureComponent textureComponent = new TextureComponent();
-        textureComponent.setTexture(new TextureRegion(new Texture("badlogic.jpg")));
+        textureComponent.setTexture(new TextureRegion(new Texture("Character.png")));
+        MovementComponent movementComponent = new MovementComponent(5,transformComponent);
         add(transformComponent);
         add(textureComponent);
+        add(movementComponent);
     }
 }

@@ -1,7 +1,9 @@
 package com.aisopp.game.controller;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.math.Vector2;
 
 /**
  * @author AIsopp
@@ -10,20 +12,12 @@ import com.badlogic.gdx.InputProcessor;
  */
 public class PlayerController extends PawnController implements InputProcessor {
 
+    public PlayerController() {
+        Gdx.input.setInputProcessor(this);
+    }
+
     @Override
     public boolean keyDown(int keycode) {
-
-        switch (keycode){
-            case Keys.W:
-                inputHandler.sendInputCode(1,1);
-                break;
-            case Keys.A:
-                break;
-            case Keys.S:
-                break;
-            case Keys.D:
-                break;
-        }
 
         return false;
     }
@@ -40,6 +34,8 @@ public class PlayerController extends PawnController implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        Vector2 screenCoordinates = new Vector2(screenX,screenY);
+        inputHandler.sendTouchInput(screenCoordinates,0);
         return false;
     }
 

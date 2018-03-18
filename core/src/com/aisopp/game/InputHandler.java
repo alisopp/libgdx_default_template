@@ -1,5 +1,7 @@
 package com.aisopp.game;
 
+import com.badlogic.gdx.math.Vector2;
+
 /**
  * @author AIsopp
  * @version 1.0
@@ -7,5 +9,6 @@ package com.aisopp.game;
  */
 
 public interface InputHandler {
-    void sendInputCode(int entityID , int code);
+
+    void sendTouchInput(Vector2 screenCoordinates, long entityID);
 }
